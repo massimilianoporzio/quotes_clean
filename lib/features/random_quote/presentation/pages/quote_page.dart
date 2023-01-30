@@ -10,7 +10,10 @@ class QuotePage extends StatefulWidget {
 class _QuotePageState extends State<QuotePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("CIAO"),
+      ),
       body: Center(
         child: Text(
           "Quote",
