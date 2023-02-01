@@ -8,6 +8,15 @@ ThemeData appTheme() {
     hintColor: AppColors.hint,
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+        centerTitle: true,
+        color: Colors.transparent,
+        elevation: 0,
+        titleTextStyle: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.w500,
+        )),
     textTheme: const TextTheme(
       labelLarge: TextStyle(
         fontSize: 16,
