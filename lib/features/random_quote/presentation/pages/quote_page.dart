@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quotes_clean/core/utils/assets_manager.dart';
+import 'package:quotes_clean/core/utils/constants.dart';
+import 'package:quotes_clean/core/utils/media_query_values.dart';
 import 'package:quotes_clean/features/favourite_quote/presentation/cubit/favourite_quote_cubit.dart';
 import 'package:quotes_clean/features/favourite_quote/presentation/pages/favourite_quote_page.dart';
 
@@ -19,14 +21,14 @@ class _QuotePageState extends State<QuotePage> {
       ),
       body: Center(
         child: InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const FavouriteQuotePage(),
-                  ));
-            },
-            child: Image.asset(ImgAssets.quote)),
+          onTap: () {
+            Constants.showErrorDialog(context: context, msg: "Error");
+          },
+          child: Image.asset(
+            ImgAssets.quote,
+            width: context.width,
+          ),
+        ),
       ),
     );
   }
