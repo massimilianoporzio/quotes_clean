@@ -8,21 +8,26 @@ ThemeData appTheme() {
     hintColor: AppColors.hint,
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white,
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
         centerTitle: true,
-        color: Colors.transparent,
+        color: AppColors.primary,
         elevation: 0,
-        titleTextStyle: TextStyle(
-          color: Colors.black,
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
           fontSize: 20,
           fontWeight: FontWeight.w500,
         )),
     textTheme: const TextTheme(
-      labelLarge: TextStyle(
-        fontSize: 16,
-        color: Colors.black,
-        fontWeight: FontWeight.w500,
-      ),
-    ),
+        bodyMedium: TextStyle(
+          height: 1.3,
+          fontSize: 22,
+          fontWeight: FontWeight.w500,
+          color: Colors.white,
+        ),
+        headlineLarge: TextStyle(
+          fontSize: 16,
+          color: Colors.black,
+          fontWeight: FontWeight.w500,
+        )),
   );
 }

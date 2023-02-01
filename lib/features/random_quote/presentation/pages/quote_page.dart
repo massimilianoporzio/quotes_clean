@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quotes_clean/core/utils/app_colors.dart';
 import 'package:quotes_clean/core/utils/app_strings.dart';
+import 'package:quotes_clean/features/random_quote/presentation/widgets/quote_card.dart';
 
 class QuotePage extends StatelessWidget {
   const QuotePage({super.key});
@@ -23,5 +25,22 @@ class QuotePage extends StatelessWidget {
 }
 
 Widget _buildBodyContent() {
-  return Column();
+  return Column(
+    children: [
+      QuoteCard(),
+      Container(
+        margin: const EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: AppColors.primary,
+        ),
+        child: const Icon(
+          Icons.refresh,
+          size: 28,
+          color: Colors.white,
+        ),
+      ),
+    ],
+  );
 }
