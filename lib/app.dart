@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotes_clean/config/routes/app_routes.dart';
 import 'package:quotes_clean/config/themes/app_theme.dart';
 import 'package:quotes_clean/core/utils/app_colors.dart';
 import 'package:quotes_clean/core/utils/app_strings.dart';
@@ -14,7 +15,7 @@ class QuoteApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: AppStrings.appName,
       theme: appTheme(),
-      home: const QuotePage(),
+      onGenerateRoute: AppRoutes.onGenerateRoute,
     );
   }
 }
