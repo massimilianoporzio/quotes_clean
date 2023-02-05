@@ -23,6 +23,8 @@ class QuoteRepositoryImpl implements QuoteRepository {
     try {
       if (await networkInfo.isConnected) {
         final remoteRandomQuote = await remoteDataSource.getRandomQuote();
+        //*e poi la metto in cache locale
+        localDataSource.cacheQuote(remoteRandomQuote);
         return Right(remoteRandomQuote);
       } else {
         final cachedQuote = await localDataSource.getLastRandomQuote();
