@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotes_clean/features/favourite_quote/presentation/pages/favourite_quote_page.dart';
+import 'package:quotes_clean/features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import 'package:quotes_clean/features/random_quote/presentation/pages/quote_page.dart';
-
 import '../../core/utils/app_strings.dart';
+
+import 'package:quotes_clean/injector_container.dart' as di;
 
 class Routes {
   static const String initialRoute = '/';
@@ -15,12 +18,15 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.initialRoute:
         return MaterialPageRoute(builder: (context) {
-          return const QuotePage();
+          return BlocProvider(
+            create: (context) => di.sl<RandomQuoteCubit>(), //chiedo al sl
+            child: const QuotePage(),
+          );
         });
-      case Routes.favouriteRoute:
-        return MaterialPageRoute(
-          builder: (context) => const FavouriteQuotePage(),
-        );
+      // case Routes.favouriteRoute:
+      //   return MaterialPageRoute(
+      //     builder: (context) => const FavouriteQuotePage(),
+      //   );
 
       default:
         return undefinedRoute();
