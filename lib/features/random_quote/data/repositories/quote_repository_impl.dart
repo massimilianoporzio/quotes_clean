@@ -36,6 +36,8 @@ class QuoteRepositoryImpl implements QuoteRepository {
       return Left(ServerFailure());
     } on CacheException {
       return Left(CacheFailure());
+    } on ParsingException {
+      return Left(ParsingFailure());
     } on Exception {
       return Left(GenericFailure());
     }
