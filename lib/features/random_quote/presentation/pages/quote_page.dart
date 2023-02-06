@@ -7,6 +7,8 @@ import 'package:quotes_clean/core/utils/app_strings.dart';
 import 'package:quotes_clean/features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import 'package:quotes_clean/features/random_quote/presentation/widgets/quote_card.dart';
 
+import 'package:quotes_clean/core/widgets/error_widget.dart' as error_widget;
+
 class QuotePage extends StatefulWidget {
   const QuotePage({super.key});
 
@@ -54,7 +56,7 @@ class _QuotePageState extends State<QuotePage> {
             ),
           );
         } else if (state is RandomQuoteError) {
-          return Text('Error: ${state.msg}');
+          return const error_widget.ErrorWidget();
         } else if (state is RandomQuoteLoaded) {
           return Column(
             children: [
