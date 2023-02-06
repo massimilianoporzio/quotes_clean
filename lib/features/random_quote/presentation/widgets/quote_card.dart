@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quotes_clean/core/utils/app_colors.dart';
 
+import '../../domain/entities/quote.dart';
+
 class QuoteCard extends StatelessWidget {
-  const QuoteCard({super.key});
+  final Quote quote;
+  const QuoteCard({super.key, required this.quote});
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +19,14 @@ class QuoteCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "'Measuring programming progress by lines of code is like measuring aircraft building progress by weight '",
+            "'${quote.content}'",
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Container(
             margin: const EdgeInsets.symmetric(vertical: 15),
             child: Text(
-              'Bill Gates',
+              quote.author,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),

@@ -19,6 +19,7 @@ class RandomQuoteCubit extends Cubit<RandomQuoteState> {
 
   //*metodi del cubit:
   Future<void> getRandomQuote() async {
+    emit(RandomQuoteIsLoading());
     //*chiamo il caso d'uso
     Either<Failure, Quote> response = await usecase(NoParams());
     //*guardo i casi:
