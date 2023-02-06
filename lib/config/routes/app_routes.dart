@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quotes_clean/features/favourite_quote/presentation/pages/favourite_quote_page.dart';
 import 'package:quotes_clean/features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import 'package:quotes_clean/features/random_quote/presentation/pages/quote_page.dart';
 import '../../core/utils/app_strings.dart';
