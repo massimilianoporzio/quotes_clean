@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:quotes_clean/core/api/app_interceptor.dart';
 import 'package:quotes_clean/core/network/network_info.dart';
 import 'package:quotes_clean/features/random_quote/data/datasources/random_quote_local_data_source.dart';
 import 'package:quotes_clean/features/random_quote/data/datasources/random_quote_remote_data_source.dart';
@@ -42,7 +44,13 @@ Future<void> init() async {
   //! External
   final sharedPrefs = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPrefs);
-
+  sl.registerLazySingleton(() => AppInterceptor());
+  sl.registerLazySingleton(() => LogInterceptor(
+      request: true,
+      requestBody: true,
+      requestHeader: true,
+      responseHeader: true,
+      error: true)); //*cosa loggo
   sl.registerLazySingleton(() => http.Client());
   sl.registerLazySingleton(() => InternetConnectionChecker());
 }
