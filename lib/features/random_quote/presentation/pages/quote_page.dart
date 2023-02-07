@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:quotes_clean/config/locale/app_localizations.dart';
 import 'package:quotes_clean/core/utils/app_colors.dart';
 import 'package:quotes_clean/core/utils/app_strings.dart';
 import 'package:quotes_clean/features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import 'package:quotes_clean/features/random_quote/presentation/widgets/quote_card.dart';
 
 import 'package:quotes_clean/core/widgets/error_widget.dart' as error_widget;
+import 'package:quotes_clean/features/splash/presentation/cubit/locale_cubit.dart';
 
 class QuotePage extends StatefulWidget {
   const QuotePage({super.key});
@@ -34,7 +36,20 @@ class _QuotePageState extends State<QuotePage> {
         // Status bar color
         statusBarColor: Colors.black.withOpacity(0.4),
       ),
-      title: const Text(AppStrings.appName),
+      leading: IconButton(
+        onPressed: () {
+          if (AppLocalizations.of(context)!.isEnLocale) {
+            BlocProvider.of<LocaleCubit>(context).toItalian();
+          } else {
+            BlocProvider.of<LocaleCubit>(context).toEnglish();
+          }
+        },
+        icon: const Icon(
+          Icons.translate_outlined,
+          color: Colors.white,
+        ),
+      ),
+      title: Text(AppLocalizations.of(context)!.translate('app_name')!),
     );
 
     return RefreshIndicator(
@@ -49,6 +64,7 @@ class _QuotePageState extends State<QuotePage> {
   Widget _buildBodyContent() {
     return BlocBuilder<RandomQuoteCubit, RandomQuoteState>(
       builder: (context, state) {
+        // state = const RandomQuoteError(msg: "ahahah");
         if (state is RandomQuoteIsLoading) {
           return Center(
             child: SpinKitFadingCircle(

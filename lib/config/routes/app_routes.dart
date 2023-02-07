@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quotes_clean/features/random_quote/presentation/cubit/random_quote_cubit.dart';
 import 'package:quotes_clean/features/random_quote/presentation/pages/quote_page.dart';
-import 'package:quotes_clean/features/splash/presentation/cubit/splash_cubit.dart';
+import 'package:quotes_clean/features/splash/presentation/cubit/locale_cubit.dart';
 import 'package:quotes_clean/features/splash/presentation/pages/splash_screen.dart';
 import '../../core/utils/app_strings.dart';
 
