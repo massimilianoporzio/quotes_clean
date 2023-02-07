@@ -12,8 +12,8 @@ import '../../../../core/usecases/base_usecase.dart';
 part 'locale_state.dart';
 
 class LocaleCubit extends Cubit<LocaleState> {
-  final GetSavedLang getSavedLangUseCase;
-  final ChangeLocale changeLangUseCase;
+  final GetSavedLangUseCase getSavedLangUseCase;
+  final ChangeLocaleUseCase changeLangUseCase;
 
   //*équando creo un cubit LocaleCubit inizio con english
   LocaleCubit(
