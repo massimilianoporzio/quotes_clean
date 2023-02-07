@@ -16,7 +16,8 @@ class QuoteApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => di.sl<LocaleCubit>(),
+          create: (context) => di.sl<LocaleCubit>()
+            ..getSavedLang(), //*serve a caricare dalla sharedPrefs l'ultimo lang
         )
       ],
       child: BlocBuilder<LocaleCubit, LocaleState>(
