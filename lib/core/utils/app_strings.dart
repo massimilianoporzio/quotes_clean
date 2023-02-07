@@ -9,4 +9,8 @@ class AppStrings {
   static const String parsingFailure =
       'Error in parsing the response from the Server';
   static const String genericError = 'Oops - something wrong. Retry.';
+  static const String englishCode = 'en';
+  static const String italianCode = 'it';
+  static const String arabicCode = 'ar';
+  static const String locale = 'locale';
 }
