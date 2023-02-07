@@ -19,7 +19,7 @@ class RandomQuoteRemoteDSImpl implements RandomQuoteRemoteDS {
 
   @override
   Future<QuoteModel> getRandomQuote() async {
-    final randomQuoteUrl = Uri.parse(Endpoints.randomQuote);
+    final randomQuoteUrl = Uri.parse(EndPoints.randomQuote);
     final response = await client.get(randomQuoteUrl, headers: {
       'Content-Type': AppStrings.contentType,
     });
